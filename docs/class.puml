@@ -1,0 +1,58 @@
+---
+config:
+  layout: elk
+  theme: neutral
+  look: neo
+---
+classDiagram
+    class Person {
+        <<abstract>>
+        -name: String
+        -phone: String
+        +Person(name: String, phone: String)
+        +getContactInfo(): String
+    }
+    class Owner {
+        -pets: List<Pet>
+        +Owner(name: String, phone: String)
+        +bookVaccination(pet: Pet, vet: Veterinarian)
+        +payForService(payment: IPayment)
+    }
+    class Veterinarian {
+        -specialty: String
+        +Veterinarian(name: String, phone: String, specialty: String)
+        +examine(pet: Pet)
+        +vaccinate(pet: Pet)
+        +sendAnalysis(pet: Pet, lab: Laboratory)
+    }
+    class Laboratory {
+        -labName: String
+        +Laboratory(name: String)
+        +publishResults(pet: Pet): String
+        +receiveAnalysis(pet: Pet)
+    }
+    class Pet {
+        -name: String
+        -species: String
+        +Pet(name: String, species: String)
+    }
+    class IPayment {
+        <<interface>>
+        +processPayment(amount: float): bool
+    }
+    class CreditCardPayment {
+        -cardNumber: String
+        +CreditCardPayment(cardNumber: String)
+        +processPayment(amount: float): bool
+        +final getReceipt(): String
+    }
+
+    Owner --|> Person
+    Veterinarian --|> Person
+    CreditCardPayment ..|> IPayment
+    Owner ..> Veterinarian : books appointment
+    Owner ..> IPayment : uses
+    Owner o-- Pet : owns
+    Veterinarian *-- Pet : vaccinates
+    Laboratory ..> Pet : analyzes
+    Veterinarian ..> Laboratory : sends analyses
