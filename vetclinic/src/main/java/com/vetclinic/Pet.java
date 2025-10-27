@@ -1,3 +1,5 @@
+package com.vetclinic;
+
 // Клас, що представляє домашню тварину
 public class Pet {
     private String name;

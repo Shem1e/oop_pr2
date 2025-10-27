@@ -1,3 +1,5 @@
+package com.vetclinic;
+
 // Головний клас для демонстрації роботи програми
 public class Main {
     public static void main(String[] args) {

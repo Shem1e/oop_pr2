@@ -1,3 +1,5 @@
+package com.vetclinic;
+
 // Клас, що представляє ветеринара
 public class Veterinarian extends Person {
     private String specialty;
