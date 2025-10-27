@@ -1,3 +1,5 @@
+package com.vetclinic;
+
 // Клас, що представляє лабораторію
 public class Laboratory {
     private String labName;

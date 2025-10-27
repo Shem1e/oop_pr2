@@ -1,3 +1,5 @@
+package com.vetclinic;
+
 // Клас для обробки платежів кредитною карткою
 public class CreditCardPayment implements IPayment {
     private String cardNumber;

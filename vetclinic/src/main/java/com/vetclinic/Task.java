@@ -1,3 +1,5 @@
+package com.vetclinic;
+
 public class Task {
     private String name;
     private String priority;

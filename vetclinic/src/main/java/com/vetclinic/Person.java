@@ -1,3 +1,5 @@
+package com.vetclinic;
+
 // Абстрактний клас, що представляє особу
 public abstract class Person {
     private String name;
