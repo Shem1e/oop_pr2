@@ -1,6 +1,11 @@
+com/vetclinic/Pet.class
 com/vetclinic/BasicDataOperationUsingSet.class
 com/vetclinic/App.class
 com/vetclinic/BasicDataOperationUsingList.class
+com/vetclinic/Appointment.class
+com/vetclinic/VetclinicModule.class
+com/vetclinic/MedicalRecordService.class
+com/vetclinic/MedicalRecord.class
 com/vetclinic/PerformanceTracker.class
 com/vetclinic/DataFileHandler.class
 com/vetclinic/BasicDataOperationUsingQueue.class

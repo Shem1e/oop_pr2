@@ -14,6 +14,12 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <!-- Guice Dependency -->
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>5.1.0</version>
+    </dependency>
     <!-- SQLite JDBC Dependency -->
     <dependency>
       <groupId>org.xerial</groupId>

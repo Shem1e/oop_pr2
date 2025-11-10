@@ -1,7 +1,12 @@
 /workspaces/oop_pr2/vetclinic/src/main/java/com/vetclinic/App.java
+/workspaces/oop_pr2/vetclinic/src/main/java/com/vetclinic/Appointment.java
 /workspaces/oop_pr2/vetclinic/src/main/java/com/vetclinic/BasicDataOperation.java
 /workspaces/oop_pr2/vetclinic/src/main/java/com/vetclinic/BasicDataOperationUsingList.java
 /workspaces/oop_pr2/vetclinic/src/main/java/com/vetclinic/BasicDataOperationUsingQueue.java
 /workspaces/oop_pr2/vetclinic/src/main/java/com/vetclinic/BasicDataOperationUsingSet.java
 /workspaces/oop_pr2/vetclinic/src/main/java/com/vetclinic/DataFileHandler.java
+/workspaces/oop_pr2/vetclinic/src/main/java/com/vetclinic/MedicalRecord.java
+/workspaces/oop_pr2/vetclinic/src/main/java/com/vetclinic/MedicalRecordService.java
 /workspaces/oop_pr2/vetclinic/src/main/java/com/vetclinic/PerformanceTracker.java
+/workspaces/oop_pr2/vetclinic/src/main/java/com/vetclinic/Pet.java
+/workspaces/oop_pr2/vetclinic/src/main/java/com/vetclinic/VetclinicModule.java
