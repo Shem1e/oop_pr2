@@ -10,6 +10,18 @@ import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
+import com.payroll.webserver.JavalinWebServer;
+import com.payroll.webserver.WebServer;
+ 
+...
+
+
+    @Provides
+    @Singleton
+    WebServer provideWebServer() {
+        return new JavalinWebServer();
+    }
+
 
 /**
  * VetclinicModule — модуль Google Guice для роботи з базою даних SQLite.

@@ -3,11 +3,11 @@
 ## Компіляція
 
 ```bash
-javac -d bin src/main/java/*.java
+mvn clean install
 ```
 
 ## Запуск
 
 ```bash
-java -cp bin Main
+mvn exec:java -Dexec.mainClass="com.vetclinic.App"
 ```
