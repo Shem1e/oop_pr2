@@ -1,9 +1,11 @@
 # Імітаційний прототип
-
+mvn exec:java -Dexec.mainClass="com.vetclinic.App"
 ## Компіляція
 
 ```bash
-javac -d bin src/main/java/*.java
+cd vet clinic
+javac -d bin src/main/java/com/vetclinic/*.java
+
 ```
 
 ## Запуск
@@ -11,3 +13,7 @@ javac -d bin src/main/java/*.java
 ```bash
 java -cp bin Main
 ```
+
+
+
+javac -d bin src/main/java/com/vetclinic/*.java

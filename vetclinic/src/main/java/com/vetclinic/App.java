@@ -17,6 +17,6 @@ public class App {
         // 4️⃣ Виконуємо логіку (створюємо прийом + збереження у базу)
         appointment.createAppointment(pet, "Allergy", "Antihistamine treatment");
 
-        System.out.println("✅ Програма завершилася успішно.");
+        System.out.println("Програма завершилася успішно.");
     }
 }
