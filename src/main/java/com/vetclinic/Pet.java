@@ -1,4 +1,5 @@
-// Клас, що представляє домашню тварину
+package com.vetclinic;
+
 public class Pet {
     private String name;
     private String species;

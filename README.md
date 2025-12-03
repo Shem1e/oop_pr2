@@ -1,13 +1,6 @@
-# Імітаційний прототип
+## Зібрати імітаційний прототип
+mvn clean install
 
-## Компіляція
 
-```bash
-javac -d bin src/main/java/*.java
-```
-
-## Запуск
-
-```bash
-java -cp bin Main
-```
+## Запустити імітаційний прототип
+mvn exec:java -Dexec.mainClass="com.vetclinic.App"
