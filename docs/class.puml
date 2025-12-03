@@ -4,55 +4,98 @@ config:
   theme: neutral
   look: neo
 ---
+
 classDiagram
-    class Person {
-        <<abstract>>
-        -name: String
-        -phone: String
-        +Person(name: String, phone: String)
-        +getContactInfo(): String
-    }
-    class Owner {
-        -pets: List<Pet>
-        +Owner(name: String, phone: String)
-        +bookVaccination(pet: Pet, vet: Veterinarian)
-        +payForService(payment: IPayment)
-    }
-    class Veterinarian {
-        -specialty: String
-        +Veterinarian(name: String, phone: String, specialty: String)
-        +examine(pet: Pet)
-        +vaccinate(pet: Pet)
-        +sendAnalysis(pet: Pet, lab: Laboratory)
-    }
-    class Laboratory {
-        -labName: String
-        +Laboratory(name: String)
-        +publishResults(pet: Pet): String
-        +receiveAnalysis(pet: Pet)
-    }
-    class Pet {
-        -name: String
-        -species: String
-        +Pet(name: String, species: String)
-    }
-    class IPayment {
-        <<interface>>
-        +processPayment(amount: float): bool
-    }
-    class CreditCardPayment {
-        -cardNumber: String
-        +CreditCardPayment(cardNumber: String)
-        +processPayment(amount: float): bool
-        +final getReceipt(): String
+
+    class App {
+        +main(String[]): void
     }
 
-    Owner --|> Person
-    Veterinarian --|> Person
-    CreditCardPayment ..|> IPayment
-    Owner ..> Veterinarian : books appointment
-    Owner ..> IPayment : uses
-    Owner o-- Pet : owns
-    Veterinarian *-- Pet : vaccinates
-    Laboratory ..> Pet : analyzes
-    Veterinarian ..> Laboratory : sends analyses
+    class Vetclinic {
+        -List~Pet~ pets
+        -List~Appointment~ appointments
+        -MedicalRecordService medicalRecordService
+        -PerformanceTracker performanceTracker
+        -DataFileHandler dataFileHandler
+
+        +Vetclinic(MedicalRecordService, PerformanceTracker, DataFileHandler)
+        +addPet(Pet): void
+        +addAppointment(Appointment): void
+        +getPets(): List~Pet~
+        +getAppointments(): List~Appointment~
+        +saveData(): void
+        +loadData(): void
+    }
+
+    class VetclinicModule {
+        +configure(): void
+        +provideMedicalRecordService(): MedicalRecordService
+        +providePerformanceTracker(): PerformanceTracker
+        +provideDataFileHandler(): DataFileHandler
+    }
+
+    class Pet {
+        -String name
+        -String species
+
+        +Pet(String, String)
+        +getName(): String
+        +getSpecies(): String
+    }
+
+    class Appointment {
+        -String date
+        -Pet pet
+
+        +Appointment(String, Pet)
+        +getDate(): String
+        +getPet(): Pet
+    }
+
+    class MedicalRecord {
+        -Pet pet
+        -List~String~ entries
+
+        +MedicalRecord(Pet)
+        +addEntry(String): void
+        +getEntries(): List~String~
+    }
+
+    class MedicalRecordService {
+        -Map~Pet, MedicalRecord~ records
+
+        +MedicalRecordService()
+        +addRecord(Pet, String): void
+        +getRecord(Pet): MedicalRecord
+    }
+
+    class PerformanceTracker {
+        -long startTime
+
+        +start(): void
+        +stop(): long
+    }
+
+    class DataFileHandler {
+        +savePets(List~Pet~): void
+        +loadPets(): List~Pet~
+        +saveAppointments(List~Appointment~): void
+        +loadAppointments(): List~Appointment~
+    }
+
+    %% Relationships
+    App --> Vetclinic : creates
+    Vetclinic o-- Pet
+    Vetclinic o-- Appointment
+    Vetclinic --> MedicalRecordService : uses
+    Vetclinic --> PerformanceTracker : uses
+    Vetclinic --> DataFileHandler : uses
+
+    MedicalRecordService o-- MedicalRecord
+    MedicalRecord --> Pet
+
+    Appointment --> Pet
+
+    VetclinicModule ..> MedicalRecordService : provides
+    VetclinicModule ..> PerformanceTracker : provides
+    VetclinicModule ..> DataFileHandler : provides

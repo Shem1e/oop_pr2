@@ -7,6 +7,20 @@
   <version>1.0-SNAPSHOT</version>
   <name>vetclinic</name>
   <url>http://maven.apache.org</url>
+  
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.6.2</version>
+            <configuration>
+                <mainClass>com.vetclinic.App</mainClass>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
